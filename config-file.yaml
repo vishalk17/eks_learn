@@ -1,0 +1,19 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: my-cluster-demo         # Name of the EKS cluster
+  region: ap-south-1            # AWS region
+  version: "1.28"               # Kubernetes version
+
+managedNodeGroups:
+  - name: my-cluster-demo-ng    # Node group name
+    instanceType: t3.micro      # EC2 instance type
+    desiredCapacity: 2          # Number of nodes
+    minSize: 1                  # Minimum nodes
+    maxSize: 3                  # Maximum nodes
+    volumeSize: 20              # Disk size in GB
+    ssh:
+      allow: true               # Enable SSH access
+      publicKeyName: vish-console  # Name of the EC2 key pair
+
