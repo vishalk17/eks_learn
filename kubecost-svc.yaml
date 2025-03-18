@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cost-analyzer-nlb
+  namespace: kubecost
+  annotations:
+    # Specify NLB as the load balancer type
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+    # Make it internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+spec:
+  type: LoadBalancer
+  selector:
+    # Targets the cost-analyzer pods
+    app: cost-analyzer
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: http
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cost-analyzer-grafana-nlb
+  namespace: kubecost
+  annotations:
+    # Specify NLB as the load balancer type
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+    # Make it internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+spec:
+  type: LoadBalancer
+  selector:
+    # Targets the cost-analyzer-grafana pods
+    app: cost-analyzer-grafana
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
