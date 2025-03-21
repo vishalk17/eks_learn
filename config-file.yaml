@@ -11,7 +11,7 @@ iam:
 
 managedNodeGroups:
   - name: my-cluster-demo-ng    # Node group name
-    instanceType: t3.xlarge     # EC2 instance type
+    instanceType: t2.medium     # EC2 instance type
     desiredCapacity: 1          # Desired Number of nodes
     minSize: 1                  # Minimum nodes
     maxSize: 1                  # Maximum nodes

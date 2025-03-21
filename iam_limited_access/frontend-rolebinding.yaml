@@ -1,0 +1,14 @@
+# frontend-rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: frontend
+  name: frontend-manager-binding
+subjects:
+- kind: User
+  name: chinu
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: frontend-manager
+  apiGroup: rbac.authorization.k8s.io
