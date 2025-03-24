@@ -10,12 +10,12 @@ iam:
   withOIDC: true                # Enable OIDC provider
 
 managedNodeGroups:
-  - name: my-cluster-demo-ng    # Node group name
-    instanceType: t2.medium     # EC2 instance type
-    desiredCapacity: 1          # Desired Number of nodes
-    minSize: 1                  # Minimum nodes
-    maxSize: 1                  # Maximum nodes
-    volumeSize: 30              # Disk size in GB
+  - name: vishalk17-cluster-demo    # Node group name
+    instanceType: t2.medium         # EC2 instance type
+    desiredCapacity: 3              # Desired Number of nodes
+    minSize: 2                      # Minimum nodes
+    maxSize: 5                      # Maximum nodes
+    volumeSize: 30                  # Disk size in GB
     ssh:
-      allow: true               # Enable SSH access
-      publicKeyName: vish-console  # Name of the EC2 key pair
+      allow: true                   # Enable SSH access
+      publicKeyName: vish-console   # Name of the EC2 key pair
